@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Empowering the Nation</title>
+    <link rel="stylesheet" href="syles.css"> <!-- Corrected styles.css -->
+    <style>
+        /* Hide the number input arrows */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield; /* For Firefox */
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            display: none; /* Hide error messages by default */
+        }
+
+        .error.active {
+            display: block; /* Show error messages when active */
+        }
+
+        /* Success message styling */
+        #success-message {
+            font-weight: bold;
+            font-size: 1.5em; /* Increased font size */
+            color: black; /* Changed color to black */
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Registration Page</h1>
+        </header>
+
+        <main>
+            <h2>Register for a Course</h2>
+            <form id="registration-form" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <p id="name-error" class="error">Please enter your name.</p>
+                
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+                <p id="age-error" class="error">Please enter a valid age (must be a positive number).</p>
+
+                <label for="course">Please select the course you wish to register for:</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="First Aid">First Aid</option>
+                    <option value="Sewing">Sewing</option>
+                    <option value="Landscape">Landscape</option>
+                    <option value="Life Skills">Life Skills</option>
+                    <option value="Six Weeks Cooking">Six Weeks Cooking</option>
+                    <option value="Six Weeks Child Minding">Six Weeks Child Minding</option>
+                    <option value="Six Weeks Garden Maintenance">Six Weeks Garden Maintenance</option>
+                    <option value="Six Month Cooking">Six Month Cooking</option>
+                    <option value="Six Month Landscaping">Six Month Landscaping</option>
+                    <option value="Six Month Life Skills">Six Month Life Skills</option>
+                </select>
+                <p id="course-error" class="error">Please select a course.</p>
+
+                <button type="submit" class="apply-btn">Apply Now</button>
+            </form>
+
+            <!-- Success message with dynamic course name -->
+            <p id="success-message"></p>
+        </main>
+
+        <footer>
+            <p>Contact us at</p>
+            <p><a href="mailto:empowernation@gmail.com">empowernation@gmail.com</a></p>
+            <p>Phone: (011) - 234 678 90</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission for now
+
+            // Input fields
+            const nameInput = document.getElementById('name');
+            const ageInput = document.getElementById('age');
+            const courseInput = document.getElementById('course');
+
+            // Error messages
+            const nameError = document.getElementById('name-error');
+            const ageError = document.getElementById('age-error');
+            const courseError = document.getElementById('course-error');
+
+            let isValid = true;
+
+            // Validate name
+            if (nameInput.value.trim() === '') {
+                nameError.classList.add('active');
+                isValid = false;
+            } else {
+                nameError.classList.remove('active');
+            }
+
+            // Validate age (positive number)
+            if (ageInput.value === '' || ageInput.value <= 0) {
+                ageError.classList.add('active');
+                isValid = false;
+            } else {
+                ageError.classList.remove('active');
+            }
+
+            // Validate course selection
+            if (courseInput.value === '') {
+                courseError.classList.add('active');
+                isValid = false;
+            } else {
+                courseError.classList.remove('active');
+            }
+
+            // If form is valid, show success message
+            if (isValid) {
+                const selectedCourse = courseInput.options[courseInput.selectedIndex].text;
+                const successMessage = document.getElementById('success-message');
+                
+                successMessage.innerHTML = `You have successfully applied for <b>${selectedCourse}</b>. Thank you for registering! Please contact us at empowernation@gmail.com or Phone: (011) - 234 678 90.`;
+                successMessage.style.display = 'block'; // Show success message
+            }
+        });
+    </script>
+</body>
+</html>

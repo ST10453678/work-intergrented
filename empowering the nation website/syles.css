@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: pink; /* Set the entire background to pink */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white; /* Keep the inner container content white */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: pink; /* Set header background to pink */
+}
+
+/* Navigation Bar */
+nav {
+    background-color: pink;
+    width: 100%; /* Ensure the navigation bar covers the whole screen */
+    text-align: center; /* Center the navigation links */
+    padding: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    color: #ffeb3b; /* Change color on hover */
+}
+
+/* Profile Icon */
+.profile-icon {
+    width: 80px; /* Increase the size of the profile icon */
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* Course Section */
+.course {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.course img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.course h3 {
+    margin-top: 10px;
+}
+
+.course-price {
+    font-size: 16px;
+    color: #333; /* Dark color for price text */
+    margin-top: 10px;
+}
+
+.apply-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.apply-btn:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Increase gap between icons */
+}
+
+.social-icon {
+    width: 50px; /* Increase size of social icons */
+    height: 50px;
+    border-radius: 50%; /* Make icons circular */
+    background-color: white; /* Set background color for social icons */
+    padding: 5px; /* Add padding to icons */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.social-icon:hover {
+    background-color: #ffeb3b; /* Change background color on hover */
+}
